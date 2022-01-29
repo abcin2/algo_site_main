@@ -1,0 +1,30 @@
+{% load static %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'algorithms/css/bootstrap.css' %}"
+/>
+
+<div class="container-fluid text-center mt-5">
+  <h1>Algorithms: Visualized</h1>
+  <h2>choose your algorithm</h2>
+  {% comment %} This is where we could iterate through data in the DB. Each
+  algorithm will have it's own card. {% endcomment %}
+  {% if latest_algo_list %}
+  <div class="mx-auto mt-5" style="width: max-content">
+    {% for algo in latest_algo_list %}
+    <div class="card text-left" style="width: 18rem">
+      <img class="card-img-top" src="https://algorithmsvisualized.s3.amazonaws.com/{{ algo.algo_thumbnail }}" alt="Card image cap" />
+      <div class="card-body">
+        <h5 class="card-title">{{ algo.algo_type }}</h5>
+        <p class="card-text">{{ algo.algo_description }}</p>
+        <a href="{{ algo.str_to_url }}" class="btn btn-primary">Visualize!</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>There are no algorithms available at this time.</p>
+  {% endif %}
+</div>

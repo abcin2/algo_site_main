@@ -1,0 +1,10 @@
+activate venv:
+
+source algo_venv/bin/activate
+
+
+for migrations:
+
+python manage.py makemigrations algorithms
+python manage.py sqlmigrate algorithms 0001
+python manage.py migrate
