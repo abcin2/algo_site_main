@@ -1,8 +1,6 @@
 import datetime
-from email.policy import default
 from django.db import models
 from django.utils import timezone
-from django.contrib.postgres.fields import ArrayField
 
 class Test(models.Model):
     text = models.CharField(max_length=200)
@@ -23,12 +21,3 @@ class AlgorithmType(models.Model):
     @property
     def str_to_url(self):
         return '_'.join(self.algo_type.lower().split(' '))
-    
-class DataSet(models.Model):
-    your_data = ArrayField(models.IntegerField())
-    bar_width = models.IntegerField()
-    max_bar = models.IntegerField()
-    data_id = models.AutoField(primary_key=True, default=None)
-    
-    def __str__(self):
-        return str(self.data_id)

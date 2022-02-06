@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Test, AlgorithmType, DataSet
+from .models import Test, AlgorithmType
 
 admin.site.register(Test)
 admin.site.register(AlgorithmType)
-admin.site.register(DataSet)
