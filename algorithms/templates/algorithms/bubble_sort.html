@@ -1,0 +1,43 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'algorithms/css/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'algorithms/css/custom.css' %}" />
+
+{% comment %} <style>
+    #bar {
+        background-color: red;
+    }
+</style> {% endcomment %}
+
+<div class="container text-center mt-5">
+    <h1>Bubble Sort</h1>
+    <div class="card">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ data_form }}
+            <input class="btn btn-primary" type="submit" name="enter_data" value="Submit">
+        </form>
+    </div>
+    <div class="container">
+        {% if nums %}
+        <div id="data-container" class="row mx-5 justify-content-md-center align-items-end">
+            {% for num in nums %}
+            <div id="bar" class="card m-2 col-sm-1 bg-warning" style="height: calc({{num}}rem / {{max_bar}} * 10)">{{ num }}</div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>please input data above</p>
+        {% endif %}
+    </div>
+    <div>
+        {% if nums %}
+        <form action="" method="get">
+            <input hidden type="text" value="{{ nums_post }}" name="data" />
+            <input type="submit" class="btn btn-success" value="Visualize!" name="visualize" />
+            <input type="submit" class="btn btn-danger" value="Refresh Values" name="refresh" />
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+<script src="{% static 'algorithms/js/bubble_sort.js' %}"></script>
