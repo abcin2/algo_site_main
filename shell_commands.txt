@@ -8,3 +8,9 @@ for migrations:
 python manage.py makemigrations algorithms
 python manage.py sqlmigrate algorithms 0001
 python manage.py migrate
+
+when updating React:
+cd frontend
+npm run build
+
+server may need to be restarted to see changes...
