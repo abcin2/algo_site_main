@@ -1,11 +1,12 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AlgorithmPage from './pages/AlgorithmPage';
+
 function App() {
   return (
     <div class="mx-auto container" className="full-page">
-      <p class="card">testing</p>
-      <button class="btn btn-primary">Test Again</button>
+      <AlgorithmPage />
     </div>
   );
 }
